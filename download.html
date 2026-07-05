@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Download — VeloAI</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #07070d;
+            color: #f0f0f5;
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .download-card {
+            max-width: 420px;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            border-radius: 16px;
+            padding: 32px 24px;
+            text-align: center;
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+        }
+
+        .file-name {
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-bottom: 8px;
+            color: #00f0ff;
+        }
+
+        .download-text {
+            color: #9a9aa8;
+            margin-bottom: 20px;
+        }
+
+        .ad-box {
+            padding: 20px;
+            border: 1px dashed rgba(255, 255, 255, 0.06);
+            border-radius: 10px;
+            color: #5c5c6a;
+            margin-bottom: 16px;
+            font-size: 0.85rem;
+        }
+
+        .timer {
+            font-size: 4rem;
+            font-weight: 900;
+            color: #00f0ff;
+            text-shadow: 0 0 40px rgba(0, 240, 255, 0.3);
+            margin-bottom: 16px;
+        }
+
+        .download-btn {
+            display: none;
+            width: 100%;
+            padding: 16px;
+            border: none;
+            border-radius: 10px;
+            background: linear-gradient(135deg, #00f0ff, #b44cff);
+            color: #000;
+            font-weight: 700;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .download-btn.show {
+            display: block;
+            animation: fadeUp 0.5s ease;
+        }
+
+        .download-btn:hover {
+            transform: scale(1.02);
+            box-shadow: 0 0 40px rgba(0, 240, 255, 0.4);
+        }
+
+        @keyframes fadeUp {
+            from {
+                opacity: 0;
+                transform: translateY(12px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .back-link {
+            display: inline-block;
+            margin-top: 16px;
+            color: #00f0ff;
+            text-decoration: none;
+            padding: 10px 24px;
+            border: 1px solid #00f0ff;
+            border-radius: 8px;
+            transition: all 0.3s;
+        }
+
+        .back-link:hover {
+            background: #00f0ff;
+            color: #000;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="download-card">
+        <div id="downloadContent">
+            <div class="file-name" id="fileNameDisplay">Loading...</div>
+            <div class="download-text">Your download link is generating...</div>
+            <div class="ad-box">📢 TOP ADVERTISEMENT</div>
+            <div class="timer" id="timer">15</div>
+            <div class="ad-box">📢 BOTTOM ADVERTISEMENT</div>
+            <button class="download-btn" id="downloadBtn">⬇ Download File Now</button>
+        </div>
+    </div>
+
+    <script>
+        (function() {
+            'use strict';
+
+              // ===== DATABASE EXACT MATCH WITH NEW PAGE KEYS =====
+            const veloDB = {
+                video_capcut_pro: {
+                    name: 'CapCut Pro v18.5.0._Velo.apk',
+                    url: 'https://1024terabox.com/s/1PUg4f5ZJ4TyiQ2x_o5OLrw'
+                },
+                video_premiere_pro: {
+                    name: 'Premiere Pro Mod.apk',
+                    url: 'https://t.me/Ve_Official'
+                },
+                video_after_effects: {
+                    name: 'After Effects Mod.apk',
+                    url: 'https://t.me/Ve_Official'
+                },
+                video_davinci_resolve: {
+                    name: 'DaVinci Resolve.apk',
+                    url: 'https://t.me/Ve_Official'
+                },
+                video_filmora: {
+                    name: 'Filmora Mod.apk',
+                    url: 'https://t.me/Ve_Official'
+                },
+                video_lightroom: {
+                    name: 'Lightroom Mod.apk',
+                    url: 'https://t.me/Ve_Official'
+                },
+                video_photoshop: {
+                    name: 'Photoshop Mod.apk',
+                    url: 'https://t.me/Ve_Official'
+                },
+                video_inshot: {
+                    name: 'InShot Pro.apk',
+                    url: 'https://t.me/Ve_Official'
+                },
+                video_vn_video_editor: {
+                    name: 'VN Video Editor.apk',
+                    url: 'https://t.me/Ve_Official'
+                },
+                video_kinemaster: {
+                    name: 'KineMaster Pro.apk',
+                    url: 'https://t.me/Ve_Official'
+                },
+                games_bgmi: {
+                    name: 'BGMI Mod v2.8.apk',
+                    url: 'https://t.me/Ve_Official'
+                },
+                games_free_fire: {
+                    name: 'Free Fire Mod v1.9.apk',
+                    url: 'https://t.me/Ve_Official'
+                },
+                games_call_of_duty: {
+                    name: 'Call of Duty Mod.apk',
+                    url: 'https://t.me/Ve_Official'
+                },
+                games_asphalt_9: {
+                    name: 'Asphalt 9 Mod.apk',
+                    url: 'https://t.me/Ve_Official'
+                },
+                games_fifa: {
+                    name: 'FIFA Mod.apk',
+                    url: 'https://t.me/Ve_Official'
+                },
+                games_pubg: {
+                    name: 'PUBG Mod.apk',
+                    url: 'https://t.me/Ve_Official'
+                },
+                games_genshin_impact: {
+                    name: 'Genshin Impact Mod.apk',
+                    url: 'https://t.me/Ve_Official'
+                },
+                games_among_us: {
+                    name: 'Among Us Mod.apk',
+                    url: 'https://t.me/Ve_Official'
+                },
+                games_valorant: {
+                    name: 'Valorant Config.zip',
+                    url: 'https://t.me/Ve_Official'
+                },
+                games_nfs: {
+                    name: 'NFS Mod.apk',
+                    url: 'https://t.me/Ve_Official'
+                },
+                editing_ai_video_editor: {
+                    name: 'AI Video Editor Pro.apk',
+                    url: 'https://t.me/Ve_Official'
+                },
+                editing_ai_photo_editor: {
+                    name: 'AI Photo Editor Pro.apk',
+                    url: 'https://t.me/Ve_Official'
+                },
+                editing_ai_writer: {
+                    name: 'AI Writer Pro.apk',
+                    url: 'https://t.me/Ve_Official'
+                },
+                editing_ai_music_maker: {
+                    name: 'AI Music Maker.apk',
+                    url: 'https://t.me/Ve_Official'
+                },
+                editing_ai_face_swap: {
+                    name: 'AI Face Swap.apk',
+                    url: 'https://t.me/Ve_Official'
+                },
+                editing_ai_upscaler: {
+                    name: 'AI Upscaler.apk',
+                    url: 'https://t.me/Ve_Official'
+                },
+                editing_ai_video_enhancer: {
+                    name: 'AI Video Enhancer.apk',
+                    url: 'https://t.me/Ve_Official'
+                },
+                editing_ai_photo_enhancer: {
+                    name: 'AI Photo Enhancer.apk',
+                    url: 'https://t.me/Ve_Official'
+                },
+                premium_mega_pack_vol1: {
+                    name: 'Mega Pack Vol.1.zip',
+                    url: 'https://t.me/Ve_Official'
+                },
+                premium_mega_pack_vol2: {
+                    name: 'Mega Pack Vol.2.zip',
+                    url: 'https://t.me/Ve_Official'
+                },
+                premium_gaming_bundle: {
+                    name: 'Gaming Bundle.zip',
+                    url: 'https://t.me/Ve_Official'
+                },
+                premium_creator_bundle: {
+                    name: 'Creator Bundle.zip',
+                    url: 'https://t.me/Ve_Official'
+                },
+                premium_ai_tools_bundle: {
+                    name: 'AI Tools Bundle.zip',
+                    url: 'https://t.me/Ve_Official'
+                },
+                premium_sound_pack: {
+                    name: 'Sound Pack.zip',
+                    url: 'https://t.me/Ve_Official'
+                },
+                premium_overlay_pack: {
+                    name: 'Overlay Pack.zip',
+                    url: 'https://t.me/Ve_Official'
+                },
+                premium_transition_pack: {
+                    name: 'Transition Pack.zip',
+                    url: 'https://t.me/Ve_Official'
+                }
+            };
+
+
+            // ===== GET FILE =====
+            const params = new URLSearchParams(window.location.search);
+            const fileKey = params.get('file');
+
+            const nameDisplay = document.getElementById('fileNameDisplay');
+            const timerEl = document.getElementById('timer');
+            const downloadBtn = document.getElementById('downloadBtn');
+            const downloadContent = document.getElementById('downloadContent');
+
+            // ===== CHECK =====
+            if (!fileKey || !veloDB[fileKey]) {
+                downloadContent.innerHTML = `
+                    <div style="padding: 20px 0;">
+                        <div style="font-size: 4rem; margin-bottom: 16px;">⚠️</div>
+                        <h2 style="color: #ff2d55; margin-bottom: 8px;">File Not Found</h2>
+                        <p style="color: #9a9aa8; margin-bottom: 20px;">
+                            The file you're looking for doesn't exist or has been moved.
+                        </p>
+                        <a href="index.html" class="back-link">← Back to Home</a>
+                    </div>
+                `;
+                return;
+            }
+
+            // ===== FILE FOUND =====
+            const fileData = veloDB[fileKey];
+            nameDisplay.textContent = fileData.name;
+
+            // ===== TIMER =====
+            let timeLeft = 15;
+
+            const countdown = setInterval(() => {
+                timeLeft--;
+                timerEl.textContent = timeLeft;
+                if (timeLeft <= 0) {
+                    clearInterval(countdown);
+                    timerEl.style.display = 'none';
+                    downloadBtn.classList.add('show');
+                }
+            }, 1000);
+
+            // ===== DOWNLOAD =====
+            downloadBtn.addEventListener('click', function() {
+                window.open(fileData.url, '_blank');
+            });
+
+            // ===== FALLBACK =====
+            setTimeout(() => {
+                if (timeLeft > 0) {
+                    clearInterval(countdown);
+                    timerEl.style.display = 'none';
+                    downloadBtn.classList.add('show');
+                }
+            }, 16000);
+
+        })();
+    </script>
+
+</body>
+</html>
