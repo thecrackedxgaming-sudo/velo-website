@@ -210,11 +210,6 @@ typeEffect();
             window.scrollTo({ top: top, behavior: 'smooth' });
         });
     });
-  /*============================================================
-   VELOAI ULTRA — All Interactions
-   Typing, Counters, Scroll Reveal, Nav, Download Timer
-   ============================================================ */
-
     // ==================== DOWNLOAD PAGE TIMER ====================
     // Automatically runs if .timer exists (download.html)
     const timerEl = document.getElementById('timer');
