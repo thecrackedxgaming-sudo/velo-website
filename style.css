@@ -1104,3 +1104,9 @@ body.page-ready {
     position: relative;
     z-index: 1;
 }
+.typing-wrapper {
+    display: none !important;
+}
+.cursor-blink {
+    display: none !important;
+}

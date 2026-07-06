@@ -111,49 +111,12 @@
     }
 
     // ==================== TYPING ANIMATION (SLOW & SMOOTH) ====================
-const words = [
-    'Premium Gaming Assets Hub',
-    'Top Gaming Mod APKs',
-    'Pro AI Editing Tools',
-    'Next-Gen Creator Resources'
-];
-
-let wordIndex = 0;
-let charIndex = 0;
-let isDeleting = false;
 const typingElement = document.getElementById('typingText');
-
-function typeEffect() {
-    if (!typingElement) return;
-    const currentWord = words[wordIndex];
-
-    if (!isDeleting) {
-        // TYPING SPEED: 120ms (pehle 80ms tha)
-        typingElement.textContent = currentWord.substring(0, charIndex + 1);
-        charIndex++;
-
-        if (charIndex === currentWord.length) {
-            isDeleting = true;
-            setTimeout(typeEffect, 2000); // Word complete hone ke baad 2 sec rukna
-            return;
-        }
-    } else {
-        // DELETING SPEED: 80ms (pehle 40ms tha)
-        typingElement.textContent = currentWord.substring(0, charIndex - 1);
-        charIndex--;
-
-        if (charIndex === 0) {
-            isDeleting = false;
-            wordIndex = (wordIndex + 1) % words.length;
-            setTimeout(typeEffect, 600); // Naya word start karne se pehle thoda rukna
-            return;
-        }
-    }
-
-    setTimeout(typeEffect, isDeleting ? 80 : 120);
+if (typingElement) {
+    typingElement.style.display = 'none';
 }
 
-typeEffect();
+// typeEffect();  ← COMMENT KAR DIYA
 
     // ==================== COUNTER ANIMATION ====================
     const counters = document.querySelectorAll('.counter');
