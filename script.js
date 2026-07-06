@@ -1,7 +1,47 @@
-/* ============================================================
-   VELOAI ULTRA — All Interactions
-   Typing, Counters, Scroll Reveal, Nav, Download Timer
-   ============================================================ */
+// ===== FLOATING PARTICLES (Relaxing Vibe) =====
+(function addParticles() {
+    const canvas = document.createElement('canvas');
+    canvas.id = 'particleCanvas';
+    canvas.style.cssText = 'position:fixed;top:0;left:0;width:100%;height:100%;pointer-events:none;z-index:0;';
+    document.body.prepend(canvas);
+    const ctx = canvas.getContext('2d');
+
+    let w, h;
+    function resize() {
+        w = canvas.width = window.innerWidth;
+        h = canvas.height = window.innerHeight;
+    }
+    resize();
+    window.addEventListener('resize', resize);
+
+    const particles = [];
+    for (let i = 0; i < 35; i++) {
+        particles.push({
+            x: Math.random() * w,
+            y: Math.random() * h,
+            r: Math.random() * 2.5 + 0.8,
+            dx: (Math.random() - 0.5) * 0.25,
+            dy: (Math.random() - 0.5) * 0.25 - 0.08,
+            o: Math.random() * 0.4 + 0.1,
+        });
+    }
+
+    function draw() {
+        ctx.clearRect(0, 0, w, h);
+        particles.forEach(p => {
+            p.x += p.dx;
+            p.y += p.dy;
+            if (p.x < 0 || p.x > w) p.dx *= -1;
+            if (p.y < 0 || p.y > h) p.dy *= -1;
+            ctx.beginPath();
+            ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+            ctx.fillStyle = `rgba(180, 210, 255, ${p.o})`;
+            ctx.fill();
+        });
+        requestAnimationFrame(draw);
+    }
+    draw();
+})();
 
 (function () {
     'use strict';
@@ -170,6 +210,10 @@ typeEffect();
             window.scrollTo({ top: top, behavior: 'smooth' });
         });
     });
+  /*============================================================
+   VELOAI ULTRA — All Interactions
+   Typing, Counters, Scroll Reveal, Nav, Download Timer
+   ============================================================ */
 
     // ==================== DOWNLOAD PAGE TIMER ====================
     // Automatically runs if .timer exists (download.html)
