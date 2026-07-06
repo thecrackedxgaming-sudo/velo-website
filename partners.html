@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Partners — VeloAI</title>
+    <link rel="stylesheet" href="style.css" />
+    <style>
+        .partners-card {
+            max-width: 420px;
+            margin: 60px auto;
+            background: var(--bg-glass);
+            border: 1px solid var(--border-glass);
+            border-radius: var(--radius);
+            padding: 32px 24px;
+            text-align: center;
+            backdrop-filter: blur(12px);
+        }
+
+        .partners-card .logo {
+            font-size: 2.8rem;
+            margin-bottom: 10px;
+        }
+
+        .partners-card .title {
+            font-size: 1.6rem;
+            font-weight: 800;
+            margin-bottom: 8px;
+            color: var(--neon-cyan);
+        }
+
+        .partners-card .sub {
+            color: var(--text-secondary);
+            margin-bottom: 24px;
+        }
+
+        .logo-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 12px;
+            margin-bottom: 24px;
+        }
+
+        .logo-box {
+            padding: 14px;
+            border: 1px solid var(--border-glass);
+            border-radius: 10px;
+            background: var(--bg-glass);
+            font-weight: 600;
+            color: var(--text-primary);
+            transition: all 0.3s;
+        }
+
+        .logo-box:hover {
+            border-color: var(--neon-cyan);
+            box-shadow: 0 0 20px rgba(0, 240, 255, 0.05);
+        }
+
+        .continue-btn {
+            display: block;
+            width: 100%;
+            padding: 14px;
+            border-radius: 10px;
+            background: linear-gradient(135deg, var(--neon-cyan), var(--neon-purple));
+            color: #000;
+            font-weight: 700;
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+
+        .continue-btn:hover {
+            transform: scale(1.02);
+            box-shadow: 0 0 40px rgba(0, 240, 255, 0.3);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="partners-card">
+        <div class="logo">⚡</div>
+        <h1 class="title">Trusted Creator Resources</h1>
+        <p class="sub">Premium gaming tools, AI editing apps, and creator assets.</p>
+
+        <div class="logo-grid">
+            <div class="logo-box">🎮 BGMI</div>
+            <div class="logo-box">🎬 CapCut</div>
+            <div class="logo-box">✈ Telegram</div>
+            <div class="logo-box">🤖 AI Tools</div>
+        </div>
+
+        <a href="download.html?file=gfx_pro" class="continue-btn">Continue To Download</a>
+    </div>
+
+</body>
+</html>
