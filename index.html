@@ -198,51 +198,41 @@
     </div>
     <!-- ===== HOMEPAGE END ===== -->
 
-    <!-- ============================================ -->
-    <!--  NEW PAGE                                    -->
-    <!-- ============================================ -->
-    <div id="newPage" class="new-page">
-        
-        <div class="new-page-header">
-            <button class="back-btn" onclick="closeNewPage()">
-                <span>←</span> Back
-            </button>
-            <div class="new-page-brand">
-                <span class="brand-mark">⟡</span>
-                <span class="brand-name">Velo<span class="accent">AI</span></span>
-            </div>
+ <!-- ============================================ -->
+<!--  NEW PAGE (Clean — No Header)                -->
+<!-- ============================================ -->
+<div id="newPage" class="new-page">
+    
+    <!-- HEADER HATAYA — Sirf Search Bar -->
+    <div class="search-container">
+        <input type="text" id="searchBar" placeholder="🔍 Search here..." oninput="filterResources(this.value)" />
+    </div>
+
+    <div class="new-page-content">
+
+        <!-- LEFT COLUMN — HATAYA (Mobile ke liye) -->
+        <!-- <div class="col-left">...</div> -->
+
+        <div class="col-center">
+            <h3 class="col-title" id="categoryTitle">Resources</h3>
+            <div class="resource-grid" id="resourceGrid"></div>
         </div>
 
-        <div class="search-container">
-            <input type="text" id="searchBar" placeholder="🔍 Search here..." oninput="filterResources(this.value)" />
-        </div>
-
-        <div class="new-page-content">
-
-            <div class="col-left">
-                <h3 class="col-title">Trusted Partners</h3>
-                <div class="scroll-list" id="companyListLeft"></div>
-            </div>
-
-            <div class="col-center">
-                <h3 class="col-title" id="categoryTitle">Resources</h3>
-                <div class="resource-grid" id="resourceGrid"></div>
-            </div>
-
-            <div class="col-right">
-                <h3 class="col-title">Trusted Partners</h3>
-                <div class="scroll-list" id="companyListRight"></div>
-            </div>
-
-        </div>
-
-        <div class="new-page-social">
-            <a href="https://youtube.com/@thecrackedx" target="_blank" class="social-icon">▶ YouTube</a>
-            <a href="https://t.me/Ve_Official" target="_blank" class="social-icon">✈ Telegram</a>
-            <a href="#" target="_blank" class="social-icon">🐙 GitHub</a>
-        </div>
+        <!-- RIGHT COLUMN — HATAYA -->
+        <!-- <div class="col-right">...</div> -->
 
     </div>
+
+    <!-- SOCIAL LINKS — Terabox Download -->
+    <div class="new-page-social">
+        <a href="https://www.terabox.com/sharing/link?surl=YOUR_LINK" target="_blank" class="social-icon download-all-btn">
+            📥 Download All Files — Terabox App
+        </a>
+    </div>
+
+</div>
+<!-- ===== NEW PAGE END ===== -->
+        </>
     <!-- ===== NEW PAGE END ===== -->
 
     <!-- ============================================ -->

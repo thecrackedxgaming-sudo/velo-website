@@ -1,6 +1,5 @@
 /* ============================================================
    VELOAI ULTRA — Cyberpunk / Sci-Fi Theme
-   Dark space, neon cyan + pink, glass-morphism
    ============================================================ */
 
 :root {
@@ -241,7 +240,7 @@ body.page-ready {
 .hero-bg {
     position: absolute;
     inset: 0;
-    background: 
+    background:
         linear-gradient(135deg, rgba(7,7,13,0.8) 0%, rgba(7,7,13,0.6) 50%, rgba(7,7,13,0.85) 100%),
         url('hero-bg.jpg');
     background-size: cover;
@@ -804,7 +803,6 @@ body.page-ready {
 /* ============================================================
    NEW PAGE STYLES
    ============================================================ */
-
 .new-page {
     display: none;
     position: fixed;
@@ -812,12 +810,19 @@ body.page-ready {
     left: 0;
     right: 0;
     bottom: 0;
-    background: var(--bg-primary);
+    background: 
+        linear-gradient(135deg, rgba(7,7,13,0.85) 0%, rgba(7,7,13,0.70) 50%, rgba(7,7,13,0.85) 100%),
+        url('assets/new-page-bg.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
     z-index: 2000;
     overflow-y: auto;
     padding: 80px 20px 40px;
     animation: slideIn 0.5s cubic-bezier(0.22, 1, 0.36, 1);
 }
+
 
 .new-page.active {
     display: block;
@@ -839,20 +844,20 @@ body.page-ready {
     align-items: center;
     justify-content: space-between;
     padding: 16px 0 24px;
-    border-bottom: 1px solid var(--border-glass);
+    border-bottom: none;          /* ← BORDER HATAYA */
     margin-bottom: 24px;
     max-width: var(--max-width);
     margin-left: auto;
     margin-right: auto;
+    background: transparent !important;  /* ← TRANSPARENT */
 }
 
 .back-btn {
     display: flex;
     align-items: center;
     gap: 8px;
-    background: var(--bg-glass);
-    border: 1px solid var(--border-glass);
-    border-radius: 10px;
+    background: transparent !important;   /* ← TRANSPARENT */
+    border: none;                         /* ← BORDER HATAYA */
     padding: 10px 20px;
     color: var(--text-primary);
     font-size: 0.95rem;
@@ -875,6 +880,7 @@ body.page-ready {
     gap: 10px;
     font-size: 1.2rem;
     font-weight: 800;
+    background: transparent !important;  /* ← ADD */
 }
 
 .search-container {
@@ -1015,4 +1021,22 @@ body.page-ready {
     max-width: var(--max-width);
     margin: 30px auto 0;
     padding-top: 24px;
-    border-to
+    border-top: 1px solid var(--border-glass);
+    display: fl
+.download-all-btn {
+    background: linear-gradient(135deg, #7abfff, #a78bfa) !important;
+    color: #000 !important;
+    font-weight: 700 !important;
+    padding: 12px 28px !important;
+    border-radius: 50px !important;
+    border: none !important;
+    box-shadow: 0 0 30px rgba(120, 180, 255, 0.3) !important;
+    transition: all 0.3s ease !important;
+}
+
+.download-all-btn:hover {
+    transform: scale(1.05) !important;
+    box-shadow: 0 0 50px rgba(120, 180, 255, 0.5) !important;
+}
+
+  
